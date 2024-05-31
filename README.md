@@ -10,11 +10,6 @@ Projeto de comunicação entre 2 serviços em GO para realizar consulta do dolar
 - go1.22.3 linux/amd64 
 - MYSQL 8
 
-## Implantação em produção
-- Back end: Heroku
-- Front end web: Netlify
-- Banco de dados: Postgresql
-
 # Como executar o projeto
 
 ## Pré-requisitos
