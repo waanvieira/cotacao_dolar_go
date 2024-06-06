@@ -92,20 +92,22 @@ func InsertDolar(ctx context.Context, dol *Dolar) (string, error) {
 	db, err := sql.Open("sqlite3", "./price_db")
 	stmt, _ := db.Prepare("CREATE TABLE IF NOT EXISTS prices (id VARCHAR(36), code VARCHAR(255), codein VARCHAR(255), name VARCHAR(255), high VARCHAR(255), low VARCHAR(255), varBid	VARCHAR(255), pctChange	VARCHAR(255), bid VARCHAR(255), ask	VARCHAR(255), timestamp	VARCHAR(255), create_date	timestamp NULL)")
 
-	// ( id INTEGER PRIMARY KEY, name VARCHAR(50), description TEXT, price REAL, amount INT )")
 	stmt.Exec()
 	if err != nil {
+		log.Fatal(ctx.Err())
 		panic(err)
 	}
 	defer db.Close()
 
 	select {
 	case <-ctx.Done():
+		log.Fatal(ctx.Err())
 		panic(ctx.Err())
 	default:
 		uuid := uuid.New().String()
 		_, err = db.Exec(fmt.Sprintf("INSERT INTO prices VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', date('now'))", uuid, dol.Code, dol.Codein, dol.Name, dol.High, dol.Low, dol.VarBid, dol.PctChange, dol.Bid, dol.Ask, dol.Timestamp))
 		if err != nil {
+			log.Fatal(ctx.Err())
 			panic(err)
 		}
 	}
