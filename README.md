@@ -52,6 +52,9 @@ curl  -X GET 'http://localhost:8080/cotacao' \
 curl  -X GET 'http://localhost:8081/price' \
   --header 'Accept: application/json' \  
 
+
+A consulta feita no client salva um arquivo "cotacao.txt" na pasta raiz do projeto client
+
 # Autor
 
 Wanderson Alves Vieira
