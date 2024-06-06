@@ -36,6 +36,12 @@ go run main.go
 
 O projeto será executado http://localhost:8081/
 
+Salvar arquivo na busca no client
+
+http://localhost:8081/price
+
+A consulta feita no client salva um arquivo "cotacao.txt" na pasta raiz do projeto client
+
 ```
 
 # Uso do sistema
