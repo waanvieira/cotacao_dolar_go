@@ -68,7 +68,7 @@ func GetCotacao() (*Dolar, error) {
 }
 
 func WriteDoc(input string) {
-	file, err := os.Create("/home/movida/fullcycle/cotacao-dolar-go/client/cotacao.txt")
+	file, err := os.Create("./cotacao.txt")
 	if err != nil {
 		panic(err)
 	}
