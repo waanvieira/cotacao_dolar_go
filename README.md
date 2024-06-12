@@ -8,13 +8,12 @@ Projeto de comunicação entre 2 serviços em GO para realizar consulta do dolar
 
 # Tecnologias utilizadas
 - go1.22.3 linux/amd64 
-- MYSQL 8
+- SQLITE3
 
 # Como executar o projeto
 
 ## Pré-requisitos
-Docker
-https://www.docker.com/get-started/
+GO - https://go.dev/
 
 ```bash
 # clonar repositório
@@ -22,9 +21,6 @@ git clone https://github.com/waanvieira/simplified_payment_platform.git
 
 # entrar na pasta do projeto back end
 cd cotacao-dolar-go
-
-# rodar o banco de dados
-docker-compose up -d
 
 # Executar o server
 cd server
@@ -39,6 +35,12 @@ cd client
 go run main.go
 
 O projeto será executado http://localhost:8081/
+
+Salvar arquivo na busca no client
+
+http://localhost:8081/price
+
+A consulta feita no client salva um arquivo "cotacao.txt" na pasta raiz do projeto client
 
 ```
 
@@ -55,6 +57,9 @@ curl  -X GET 'http://localhost:8080/cotacao' \
 
 curl  -X GET 'http://localhost:8081/price' \
   --header 'Accept: application/json' \  
+
+
+A consulta feita no client salva um arquivo "cotacao.txt" na pasta raiz do projeto client
 
 # Autor
 
